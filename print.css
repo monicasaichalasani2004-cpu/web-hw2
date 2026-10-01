@@ -1,0 +1,82 @@
+/*
+    Name: Monica Sai Chalasani
+    Section: Web Programming
+    Assignment: Homework 2 - My Movie Review
+    File: print.css
+    Description: Clean print layout for the graduate-only track.
+*/
+
+@page {
+    margin: 0.5in;
+}
+
+body {
+    padding: 0;
+    background: #fff;
+    color: #000;
+    font-size: 9pt;
+}
+
+.site-banner,
+.validators {
+    display: none;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 20pt;
+}
+
+.content-frame {
+    width: 100%;
+    max-width: none;
+    border: 1px solid #666;
+    display: block;
+    overflow: visible;
+    background: #fff;
+}
+
+.review-region,
+.overview {
+    width: 100%;
+}
+
+.rating-strip,
+.review-counter,
+.overview {
+    background: #fff;
+    color: #000;
+}
+
+.rating-percent {
+    color: #000;
+}
+
+.review-count {
+    color: #000;
+}
+
+.reviews-grid {
+    display: block;
+    padding: 0;
+}
+
+.review {
+    break-inside: avoid;
+    margin: 10px 0;
+}
+
+.quote {
+    background: #fff;
+    border: 1px solid #777;
+}
+
+.overview-image {
+    width: 180px;
+    margin: 0 auto;
+}
+
+a {
+    color: #000;
+    text-decoration: underline;
+}

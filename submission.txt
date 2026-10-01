@@ -1,0 +1,4 @@
+Name: Monica Sai Chalasani
+Live URL: https://codd.cs.gsu.edu/~mchalasani1/web/hw2/index.html
+GitHub: PASTE_YOUR_GITHUB_REPOSITORY_URL_HERE
+Notes: Homework 2 completed with responsive Grid/Flexbox layout and validation.

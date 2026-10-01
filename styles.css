@@ -1,0 +1,312 @@
+/*
+    Name: Monica Sai Chalasani
+    Section: Web Programming
+    Assignment: Homework 2 - My Movie Review
+    File: styles.css
+    Description:
+        Uses named CSS Grid areas for the major page regions and Flexbox for
+        repeated reviewer metadata. The layout collapses at 700px and is
+        additionally tuned at 480px to avoid horizontal scrolling.
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0 0 56px;
+    background-image: url("images/background.png");
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 8pt;
+    color: #000;
+}
+
+.site-banner {
+    height: 50px;
+    overflow: hidden;
+    background-image: url("images/bannerbackground.png");
+    background-repeat: repeat-x;
+    text-align: center;
+}
+
+.site-banner img {
+    display: block;
+    height: 50px;
+    width: auto;
+    min-width: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+h1 {
+    margin: 18px 10px;
+    text-align: center;
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+.content-frame {
+    width: 800px;
+    max-width: calc(100% - 16px);
+    margin: 0 auto;
+    border: 4px solid gray;
+    display: grid;
+    grid-template-areas:
+        "reviews overview"
+        "counter counter";
+    grid-template-columns: minmax(0, 1fr) 250px;
+    align-items: stretch;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.review-region {
+    grid-area: reviews;
+    min-width: 0;
+}
+
+.rating-strip {
+    min-height: 83px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-image: url("images/rottenbackground.png");
+    background-repeat: repeat-x;
+    color: #fff;
+}
+
+.rating-image {
+    display: block;
+    width: 98px;
+    height: 83px;
+    flex: 0 0 auto;
+}
+
+.rating-metadata {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 8px;
+    min-width: 0;
+}
+
+.rating-percent {
+    color: red;
+    font-size: 48pt;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.review-count {
+    color: #fff;
+    white-space: normal;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 47%));
+    justify-content: space-around;
+    column-gap: 2%;
+    row-gap: 14px;
+    padding: 10px 2%;
+}
+
+.review {
+    min-width: 0;
+}
+
+.review p {
+    margin-top: 0;
+}
+
+.quote {
+    min-height: 0;
+    margin-bottom: 8px;
+    padding: 8px;
+    border: 2px solid gray;
+    background-color: #E1D697;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.quote img {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+.quote::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.reviewer {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 12px;
+}
+
+.reviewer img {
+    width: 35px;
+    height: 33px;
+    flex: 0 0 auto;
+}
+
+.reviewer span {
+    flex: 1 1 90px;
+    min-width: 0;
+}
+
+.overview {
+    grid-area: overview;
+    min-width: 0;
+    background-color: #A2B964;
+    font-family: Arial, sans-serif;
+}
+
+.overview-image {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+}
+
+.overview dl {
+    margin: 0;
+    padding: 10px;
+}
+
+.overview dt {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.overview dt:first-child {
+    margin-top: 0;
+}
+
+.overview dd {
+    margin-left: 0;
+}
+
+.overview a {
+    color: #173f8a;
+}
+
+.review-counter {
+    grid-area: counter;
+    margin: 0;
+    padding: 5px;
+    background-color: #A2B964;
+    text-align: center;
+}
+
+.validators {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    padding: 4px;
+    background-color: rgb(162 185 100 / 92%);
+    z-index: 10;
+}
+
+.validators a {
+    display: inline-block;
+    padding: 6px 8px;
+    border: 1px solid #4f6334;
+    background-color: #fff;
+    color: #173f8a;
+    text-decoration: none;
+}
+
+a:focus-visible {
+    outline: 3px solid #000;
+    outline-offset: 2px;
+}
+
+.validators a:hover,
+.overview a:hover {
+    text-decoration: underline;
+}
+
+/*
+    Graduate responsive breakpoint:
+    The named Grid areas stack so the reviews and sidebar become full-width.
+*/
+@media (max-width: 700px) {
+    .content-frame {
+        grid-template-areas:
+            "reviews"
+            "overview"
+            "counter";
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .overview-image {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .rating-strip {
+        justify-content: flex-start;
+    }
+}
+
+/*
+    480px refinement:
+    Reviews become one column and the rating text scales down slightly.
+*/
+@media (max-width: 480px) {
+    body {
+        font-size: 8.5pt;
+    }
+
+    h1 {
+        margin: 14px 8px;
+        font-size: 20pt;
+    }
+
+    .reviews-grid {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 8px;
+        row-gap: 8px;
+    }
+
+    .rating-image {
+        width: 86px;
+        height: auto;
+    }
+
+    .rating-percent {
+        font-size: 38pt;
+    }
+
+    .rating-metadata {
+        gap: 5px;
+    }
+
+    .validators {
+        left: 0;
+        right: 0;
+        justify-content: center;
+    }
+}
